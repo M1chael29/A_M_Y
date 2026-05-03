@@ -4,8 +4,8 @@
 */
 
 /* 1. DEPENDENCIAS */
-@import "~bootstrap/dist/css/bootstrap.min.css";
-@import "~aos/dist/aos.css";
+@import "bootstrap/dist/css/bootstrap.min.css";
+@import "aos/dist/aos.css";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;800&display=swap');
 
 /* 2. DESIGN TOKENS (Variables de Élite) */
