@@ -1,0 +1,104 @@
+.footer-premium {
+    background-color: #050505;
+    border-top: 1px solid #161b22;
+    position: relative;
+    z-index: 10;
+}
+
+/* Tipografías y Colores */
+.brand-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 800;
+    font-size: 1.4rem;
+    color: white;
+}
+
+.text-dim {
+    color: #8b949e;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.tech-tag {
+    color: var(--neon-green);
+    font-weight: bold;
+}
+
+/* Links Animados */
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: #8b949e;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: var(--neon-green);
+    transform: translateX(5px);
+}
+
+/* Iconos Sociales Estilo Cyber */
+.social-btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #30363d;
+    border-radius: 4px;
+    color: #f0f6fc;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.social-btn:hover {
+    transform: translateY(-5px);
+    border-color: var(--neon-green);
+    color: var(--neon-green);
+    box-shadow: 0 0 15px var(--neon-green-dim);
+}
+
+/* Badge con Pulso */
+.status-badge {
+    background: #0d1117;
+    padding: 8px 16px;
+    border-radius: 50px;
+    border: 1px solid #30363d;
+}
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--neon-green);
+    border-radius: 50%;
+    box-shadow: 0 0 0 rgba(0, 255, 65, 0.4);
+    animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 65, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 255, 65, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 65, 0); }
+}
+
+/* Back to top Button */
+.back-to-top {
+    background: transparent;
+    border: 1px solid #30363d;
+    color: #f0f6fc;
+    width: 35px;
+    height: 35px;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.back-to-top:hover {
+    background: var(--neon-green);
+    color: black;
+    border-color: var(--neon-green);
+}

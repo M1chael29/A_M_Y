@@ -1,1 +1,97 @@
-<p>footer works!</p>
+<footer class="footer-ultra-pro pt-5 pb-2">
+  <!-- Efecto de gradiente de fondo sutil -->
+  <div class="footer-glow"></div>
+
+  <div class="container position-relative">
+    <!-- SECCIÓN SUPERIOR: NEWSLETTER -->
+    <div class="newsletter-wrap p-4 mb-5" data-aos="fade-up">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h4 class="tech-font text-white mb-1">SUSCRIBIRSE_AL_FEED</h4>
+          <p class="text-dim mb-lg-0">Recibe actualizaciones de ingeniería y desarrollo web.</p>
+        </div>
+        <div class="col-lg-6">
+          <form class="d-flex gap-2">
+            <input type="email" class="form-control-cyber" placeholder="tu-correo@empresa.com">
+            <button class="btn-cyber-submit">UNIRSE</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="row gy-5" data-aos="fade-up" data-aos-delay="100">
+      <!-- COLUMNA 1: MARCA Y REDES -->
+      <div class="col-lg-4 col-md-12">
+        <div class="footer-brand-wrap mb-4">
+          <div class="brand-logo-hex">AMY</div>
+          <div>
+            <h5 class="m-0 tech-font fw-bold">DIGITAL_AGENCY</h5>
+            <span class="code-accent small">// NODE_LATAM_TJA</span>
+          </div>
+        </div>
+        <p class="text-dim pe-lg-4">
+          Líderes en ingeniería de software y automatización.
+          Desarrollamos el futuro digital de Bolivia con precisión técnica.
+        </p>
+        <!-- REDES SOCIALES ACTUALIZADAS -->
+        <div class="social-v2 d-flex flex-wrap gap-2 mt-4">
+          <a href="https://facebook.com" target="_blank" class="s-box fb" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://instagram.com" target="_blank" class="s-box ig" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://x.com" target="_blank" class="s-box x-twitter" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="https://tiktok.com" target="_blank" class="s-box tt" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://wa.me/591XXXXXXXX" target="_blank" class="s-box wa" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <!-- COLUMNA 2: SERVICIOS -->
+      <div class="col-lg-2 col-6">
+        <h6 class="text-white fw-bold mb-4">ENGINEERING</h6>
+        <ul class="nav-links-v2">
+          <li><a routerLink="/servicios/tiendas-online">E-commerce</a></li>
+          <li><a routerLink="/servicios/sitios-corporativos">Corporativos</a></li>
+          <li><a routerLink="/servicios/mantenimiento-web">Maintenance</a></li>
+          <li><a routerLink="/servicios/landing-pages">Landings</a></li>
+        </ul>
+      </div>
+
+      <!-- COLUMNA 3: EMPRESA -->
+      <div class="col-lg-2 col-6">
+        <h6 class="text-white fw-bold mb-4">INFO_CORE</h6>
+        <ul class="nav-links-v2">
+          <li><a routerLink="/portafolio">Portafolio</a></li>
+          <li><a routerLink="/blog">Blog</a></li>
+          <li><a routerLink="/contacto">Contacto</a></li>
+          <li><a routerLink="/legal">Legal_Notice</a></li>
+        </ul>
+      </div>
+
+      <!-- COLUMNA 4: SISTEMA -->
+      <div class="col-lg-4 col-md-12">
+        <h6 class="text-white fw-bold mb-4">SISTEMA_ESTADO</h6>
+        <div class="terminal-box p-3">
+          <div class="d-flex align-items-center mb-2">
+            <span class="status-indicator online"></span>
+            <span class="ms-2 small fw-bold">SERVER_ONLINE: 99.9% UPTIME</span>
+          </div>
+          <div class="d-flex align-items-center mb-2">
+            <i class="fa-solid fa-microchip text-dim me-2"></i>
+            <span class="text-dim small">LOC: Barrio La Unión, TJA</span>
+          </div>
+          <div class="d-flex align-items-center">
+            <i class="fa-solid fa-code-branch text-dim me-2"></i>
+            <span class="text-dim small">VERSION: 4.0.1-STABLE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FINAL -->
+    <div class="footer-last mt-5 pt-4 d-flex flex-wrap justify-content-between align-items-center border-top border-secondary border-opacity-10">
+      <p class="small text-dim mb-0">&copy; 2026 <span class="text-white">AMY</span>. Powered by <span class="text-neon">Angular 18</span></p>
+      <div class="d-flex gap-4">
+        <span class="small text-dim">BOLIVIA_NODE</span>
+        <button (click)="scrollToTop()" class="scroll-pro"><i class="fa-solid fa-arrow-up"></i></button>
+      </div>
+    </div>
+  </div>
+</footer>
