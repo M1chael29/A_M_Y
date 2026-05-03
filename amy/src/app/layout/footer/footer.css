@@ -1,104 +1,66 @@
-.footer-premium {
-    background-color: #050505;
-    border-top: 1px solid #161b22;
-    position: relative;
-    z-index: 10;
+.footer-ultra-pro {
+  background-color: #020202;
+  position: relative;
+  border-top: 1px solid #111;
+  overflow: hidden;
 }
 
-/* Tipografías y Colores */
-.brand-name {
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: 800;
-    font-size: 1.4rem;
-    color: white;
+.footer-glow {
+  position: absolute;
+  top: -150px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(0, 255, 65, 0.03) 0%, transparent 70%);
+  pointer-events: none;
 }
 
-.text-dim {
-    color: #8b949e;
-    font-size: 0.9rem;
-    line-height: 1.6;
+/* Identidad Visual */
+.brand-logo-hex {
+  background: var(--neon-green);
+  color: black;
+  padding: 5px 10px;
+  font-weight: 900;
+  font-family: 'JetBrains Mono', monospace;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
 }
 
-.tech-tag {
-    color: var(--neon-green);
-    font-weight: bold;
+.text-dim { color: #8b949e; font-size: 0.9rem; line-height: 1.6; }
+
+/* Iconos de Redes Sociales */
+.s-box {
+  width: 42px; height: 42px;
+  display: flex; align-items: center; justify-content: center;
+  background: #0d1117; border: 1px solid #21262d;
+  color: #8b949e; border-radius: 4px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.s-box svg { width: 18px; height: 18px; }
+.s-box:hover {
+  transform: translateY(-5px);
+  color: var(--neon-green); border-color: var(--neon-green);
+  box-shadow: 0 5px 15px rgba(0, 255, 65, 0.1);
 }
 
-/* Links Animados */
-.footer-links li {
-    margin-bottom: 12px;
+/* Terminal de Estado */
+.terminal-box {
+  background: #080808; border-left: 2px solid var(--neon-green);
+  font-family: 'JetBrains Mono', monospace;
+}
+.status-indicator.online {
+  width: 8px; height: 8px; background: var(--neon-green);
+  border-radius: 50%; box-shadow: 0 0 8px var(--neon-green);
 }
 
-.footer-links a {
-    color: #8b949e;
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    display: inline-block;
-}
+/* Barra Final (Copyright) */
+.footer-bar-final { font-size: 0.75rem; letter-spacing: 1px; color: #8b949e; text-transform: uppercase; }
+.tech-stack-label { font-family: 'JetBrains Mono', monospace; border-left: 1px solid #30363d; padding-left: 10px; }
+.hover-neon:hover { color: var(--neon-green) !important; }
 
-.footer-links a:hover {
-    color: var(--neon-green);
-    transform: translateX(5px);
+/* Botón Scroll */
+.btn-scroll-top {
+  background: #0d1117; border: 1px solid #30363d; color: white;
+  width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
+  border-radius: 2px; transition: 0.3s;
 }
-
-/* Iconos Sociales Estilo Cyber */
-.social-btn {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #30363d;
-    border-radius: 4px;
-    color: #f0f6fc;
-    text-decoration: none;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.social-btn:hover {
-    transform: translateY(-5px);
-    border-color: var(--neon-green);
-    color: var(--neon-green);
-    box-shadow: 0 0 15px var(--neon-green-dim);
-}
-
-/* Badge con Pulso */
-.status-badge {
-    background: #0d1117;
-    padding: 8px 16px;
-    border-radius: 50px;
-    border: 1px solid #30363d;
-}
-
-.pulse-dot {
-    width: 8px;
-    height: 8px;
-    background-color: var(--neon-green);
-    border-radius: 50%;
-    box-shadow: 0 0 0 rgba(0, 255, 65, 0.4);
-    animation: pulse-green 2s infinite;
-}
-
-@keyframes pulse-green {
-    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 65, 0.7); }
-    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 255, 65, 0); }
-    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 65, 0); }
-}
-
-/* Back to top Button */
-.back-to-top {
-    background: transparent;
-    border: 1px solid #30363d;
-    color: #f0f6fc;
-    width: 35px;
-    height: 35px;
-    border-radius: 4px;
-    transition: 0.3s;
-}
-
-.back-to-top:hover {
-    background: var(--neon-green);
-    color: black;
-    border-color: var(--neon-green);
-}
+.btn-scroll-top:hover { background: var(--neon-green); color: black; border-color: var(--neon-green); }

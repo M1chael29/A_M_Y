@@ -10,12 +10,10 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./footer.css']
 })
 export class Footer {
-
-  // Función pro para scroll suave hacia arriba
+  // Función para subir suavemente
   scrollToTop(): void {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+
+  // Aquí podrías añadir la lógica para captar el email del newsletter más adelante
 }

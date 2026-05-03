@@ -1,7 +1,7 @@
 .navbar {
   width: 100%;
-  background: #ffffff;
-  border-bottom: 1px solid #e5e5e5;
+  background: #050505; /* CAMBIO: Fondo negro profundo */
+  border-bottom: 1px solid rgba(0, 255, 65, 0.3); /* CAMBIO: Línea sutil verde neón */
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -20,7 +20,7 @@
 .logo {
   font-size: 20px;
   font-weight: bold;
-  color: #111;
+  color: #00ff41; /* CAMBIO: Logo en verde neón */
   text-decoration: none;
 }
 
@@ -32,14 +32,15 @@
 
 .menu li a {
   text-decoration: none;
-  color: #333;
+  color: #f0f6fc; /* CAMBIO: Enlaces en blanco/gris claro */
   font-size: 14px;
   transition: 0.2s;
 }
 
 .menu li a:hover {
-  color: #000;
+  color: #00ff41; /* CAMBIO: Los enlaces se vuelven verdes al pasar el mouse */
 }
+
 @media (max-width: 768px) {
   .menu {
     display: none;
