@@ -1,17 +1,46 @@
-<nav class="navbar">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
 
-    <!-- Logo -->
-    <a routerLink="/" class="logo">AMY</a>
+    <a routerLink="/" class="navbar-brand logo">AMY</a>
 
-    <!-- Links -->
-    <ul class="menu">
-      <li><a routerLink="/">Inicio</a></li>
-      <li><a routerLink="/servicios">Servicios</a></li>
-      <li><a routerLink="/portafolio">Portafolio</a></li>
-      <li><a routerLink="/blog">Blog</a></li>
-      <li><a routerLink="/contacto">Contacto</a></li>
-    </ul>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNavegacion">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="menuNavegacion">
+      <ul class="navbar-nav ms-auto menu">
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/">Inicio</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropServicios" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Servicios
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropServicios">
+            <li><a class="dropdown-item" routerLink="/servicios">Ver todos</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" routerLink="/servicios/landing-pages">Landing Pages</a></li>
+            <li><a class="dropdown-item" routerLink="/servicios/sitios-corporativos">Sitios Corporativos</a></li>
+            <li><a class="dropdown-item" routerLink="/servicios/tiendas-online">Tiendas Online</a></li>
+            <li><a class="dropdown-item" routerLink="/servicios/mantenimiento-web">Mantenimiento Web</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/portafolio">Portafolio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/blog">Blog</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contacto">Contacto</a>
+        </li>
+
+      </ul>
+    </div>
 
   </div>
 </nav>

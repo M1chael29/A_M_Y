@@ -1,1 +1,139 @@
-/* You can add global styles to this file, and also import other style files */
+/*
+  AMY DIGITAL AGENCY - ULTRA-PREMIUM ARCHITECTURE
+  ESTILO: CYBER-MINIMALIST / HIGH-END DARK MODE
+*/
+
+/* 1. DEPENDENCIAS */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~aos/dist/aos.css";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;800&display=swap');
+
+/* 2. DESIGN TOKENS (Variables de Élite) */
+:root {
+    /* Fondos en capas (Layering) */
+    --bg-pure: #000000;
+    --bg-surface-1: #0a0a0a;
+    --bg-surface-2: #121212;
+    --bg-navy-glass: rgba(13, 17, 23, 0.7);
+
+    /* Identidad Neón "Ghost Green" */
+    --neon-green: #00ff41;
+    --neon-green-dim: rgba(0, 255, 65, 0.1);
+    --neon-glow: rgba(0, 255, 65, 0.4);
+
+    /* Paleta de Acento */
+    --accent-blue: #58a6ff;
+    --border-subtle: #21262d;
+    --border-active: #30363d;
+
+    /* Tipografía */
+    --font-main: 'Inter', system-ui, sans-serif;
+    --font-code: 'JetBrains Mono', monospace;
+
+    /* Animaciones Cinematográficas */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-pro: all 0.5s var(--ease-out-expo);
+}
+
+/* 3. CORE RESET */
+html, body {
+    height: 100%;
+    margin: 0;
+    background-color: var(--bg-pure);
+    color: #ffffff;
+    font-family: var(--font-main);
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estructura para app.html */
+main {
+    flex: 1 0 auto;
+    padding-top: 80px; /* Altura del navbar */
+    /* Efecto de ruido de fondo sutil para dar textura pro */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3BaseFilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/baseFilter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    background-attachment: fixed;
+    opacity: 0.98;
+}
+
+/* 4. SCROLLBAR ESTILO "STEALTH" */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg-pure); }
+::-webkit-scrollbar-thumb {
+    background: var(--border-subtle);
+    border-radius: 10px;
+    transition: var(--transition-pro);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--neon-green); }
+
+/* 5. UI KIT DE ALTO IMPACTO */
+
+/* Títulos con impacto visual */
+.h-display {
+    font-family: var(--font-main);
+    font-weight: 900;
+    letter-spacing: -3px;
+    line-height: 0.9;
+    background: linear-gradient(180deg, #fff 0%, #666 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Tarjetas Pro con "Borde de Luz" */
+.amy-card {
+    background: var(--bg-surface-1);
+    border: 1px solid var(--border-subtle);
+    border-radius: 1px; /* Bordes rectos para un look más industrial y serio */
+    padding: 3rem;
+    position: relative;
+    transition: var(--transition-pro);
+}
+
+.amy-card:hover {
+    border-color: var(--neon-green);
+    background: var(--bg-surface-2);
+    box-shadow: 0 0 30px rgba(0, 255, 65, 0.05);
+}
+
+.amy-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--neon-green), transparent);
+    transform: scaleX(0);
+    transition: var(--transition-pro);
+}
+
+.amy-card:hover::before { transform: scaleX(1); }
+
+/* Botones "Action" Elite */
+.btn-premium {
+    background: transparent;
+    border: 1px solid var(--border-subtle);
+    color: #fff;
+    font-family: var(--font-code);
+    font-size: 0.8rem;
+    padding: 15px 40px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition-pro);
+}
+
+.btn-premium:hover {
+    border-color: var(--neon-green);
+    color: var(--neon-green);
+    letter-spacing: 6px;
+    box-shadow: 0 0 20px var(--neon-green-dim);
+}
+
+/* 6. UTILS */
+.text-neon { color: var(--neon-green); }
+.code-inline { font-family: var(--font-code); background: #111; padding: 2px 6px; border-radius: 4px; }
