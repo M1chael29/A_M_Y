@@ -4,6 +4,7 @@ export const routes: Routes = [
   {
     path: '',
     loadComponent: () => import('./features/home/home').then(m => m.Home),
+    pathMatch: 'full',
     title: 'Inicio - AMY'
   },
   {

@@ -1,0 +1,139 @@
+/* --- HERO WRAPPER --- */
+.amy-hero-wrapper {
+    position: relative; width: 100%; height: 100vh;
+    margin: 0; padding: 0; overflow: hidden; background: #000;
+}
+
+.amy-hero-bg {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('src/assets/images/a9.jpg');
+    background-size: cover; background-position: center; z-index: 1;
+}
+
+/* --- PANEL DE TEXTO (EFECTO VIDRIO) --- */
+/* Esto hace que el texto se lea sobre cualquier imagen sin taparla */
+.text-glass-panel {
+    background: rgba(10, 10, 10, 0.35); /* Muy transparente */
+    backdrop-filter: blur(10px); /* Desenfoque sutil solo detrás del texto */
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 50px 70px;
+    border-radius: 30px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5), inset 0 0 20px rgba(255,255,255,0.05);
+}
+
+/* --- ESLOGAN --- */
+.hero-slogan {
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.1;
+    margin: 0;
+    font-family: 'Inter', sans-serif; /* O la fuente que uses */
+    letter-spacing: -2px;
+}
+
+/* Efecto de color degradado para el "No busques más" */
+.text-gradient {
+    background: linear-gradient(90deg, #2606db, #0dbbe2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-sub-slogan {
+    font-size: 1.2rem;
+    color: #e2e8f0;
+    font-weight: 400;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* --- BOTÓN PRINCIPAL --- */
+.btn-amy-core {
+    background: linear-gradient(45deg, #00ffea, #0300cc);
+    color: #000; border: none; padding: 15px 40px; border-radius: 50px;
+    font-weight: 900; font-size: 1rem; transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 255, 65, 0.3);
+    cursor: pointer;
+}
+
+.btn-amy-core:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0, 255, 65, 0.5);
+    color: #fff;
+}
+
+/* =========================================
+   ANIMACIÓN DE BURBUJAS / NODOS FLOTANTES
+   ========================================= */
+.floating-nodes-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10; /* ¡AQUÍ ESTÁ LA MAGIA! Antes era 2, ahora flotarán sobre el panel */
+    pointer-events: none;
+}
+
+/* Diseño de las burbujas translúcidas */
+.glass-bubble {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4), inset 0 0 15px rgba(255,255,255,0.05);
+    border-radius: 50px;
+    padding: 15px 25px;
+    display: flex; align-items: center; gap: 12px;
+    color: #dd0000; font-weight: 700; font-size: 0.9rem; letter-spacing: 1px;
+    pointer-events: auto; /* Permite hacer hover en la burbuja */
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: default;
+}
+
+/* Efecto al pasar el mouse sobre una burbuja (se ilumina) */
+.glass-bubble:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #20c5f7;
+    transform: scale(1.15) !important; /* Crece y detiene el flotado brevemente */
+    z-index: 10;
+    box-shadow: 0 0 30px rgba(8, 189, 221, 0.4);
+}
+
+.glass-bubble i { font-size: 1.4rem; }
+
+/* Posicionamiento inicial y asignación de colores */
+/* Posicionamiento más abierto para que no choquen con el texto central */
+.bubble-1 { top: 15%; left: 5%; animation: float1 8s infinite ease-in-out; }
+.bubble-1 i { color: #00ff41; text-shadow: 0 0 10px #00ff41; }
+
+.bubble-2 { top: 75%; left: 8%; animation: float2 12s infinite ease-in-out; }
+.bubble-2 i { color: #00d2ff; text-shadow: 0 0 10px #00d2ff; }
+
+.bubble-3 { top: 18%; right: 5%; animation: float3 10s infinite ease-in-out; }
+.bubble-3 i { color: #ff0055; text-shadow: 0 0 10px #ff0055; }
+
+.bubble-4 { top: 78%; right: 8%; animation: float4 9s infinite ease-in-out; }
+.bubble-4 i { color: #ffcc00; text-shadow: 0 0 10px #ffcc00; }
+
+/* Los motores de animación (Movimientos suaves arriba, abajo y a los lados) */
+@keyframes float1 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(20px, -30px); } }
+@keyframes float2 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-20px, -40px); } }
+@keyframes float3 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-30px, 20px); } }
+@keyframes float4 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(30px, 30px); } }
+
+/* --- RESPONSIVE PARA MÓVILES --- */
+@media (max-width: 991px) {
+    .text-glass-panel { padding: 30px 20px; width: 95%; }
+    .hero-slogan { font-size: 2.5rem; }
+
+    /* En móviles, reordenamos las burbujas para que no tapen el texto central */
+    .glass-bubble { padding: 10px 15px; font-size: 0.75rem; }
+    .glass-bubble i { font-size: 1.1rem; }
+    .bubble-1 { top: 12%; left: 5%; }
+    .bubble-2 { top: 82%; left: 5%; }
+    .bubble-3 { top: 12%; right: 5%; }
+    .bubble-4 { top: 82%; right: 5%; }
+}

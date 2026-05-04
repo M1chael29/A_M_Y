@@ -1,48 +1,166 @@
-.navbar {
-  width: 100%;
-  background: #050505; /* CAMBIO: Fondo negro profundo */
-  border-bottom: 1px solid rgba(0, 255, 65, 0.3); /* CAMBIO: Línea sutil verde neón */
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+/* =========================================
+   NAVBAR CSS // ULTRA INSANO GOD TIER
+   ========================================= */
+
+/* --- ESTADO INICIAL (Transparente para mostrar el Hero) --- */
+.amy-navbar {
+    padding: 20px 0;
+    /* COLOR FONDO: Transparente absoluto (!important fuerza que nada lo pise) */
+    background: transparent !important;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    border-bottom: 1px solid transparent;
+    z-index: 9999;
 }
 
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 70px;
+/* --- ESTADO SCROLL (Glassmorphism Industrial) --- */
+.amy-navbar.navbar-scrolled {
+    padding: 10px 0;
+    /* COLOR FONDO: Negro/Gris muy oscuro (rgba 2,2,2) al 85% de opacidad */
+    background: rgba(2, 2, 2, 0.85) !important;
+    backdrop-filter: blur(15px) saturate(180%);
+    -webkit-backdrop-filter: blur(15px) saturate(180%);
+    /* COLOR BORDE: Verde Neón (#00ff41) al 20% de opacidad para un brillo sutil */
+    border-bottom: 1px solid rgba(0, 255, 65, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
 }
 
-.logo {
-  font-size: 20px;
-  font-weight: bold;
-  color: #00ff41; /* CAMBIO: Logo en verde neón */
-  text-decoration: none;
+/* --- LOGO AMY --- */
+.brand-hex {
+    /* COLOR FONDO: Verde Neón al 5% (casi imperceptible, solo da textura) */
+    background: rgba(0, 255, 65, 0.05);
+    /* COLOR TEXTO: Verde Neón (#00ff41) */
+    color: #00ff41;
+    /* COLOR BORDE: Verde Neón al 50% */
+    border: 1px solid rgba(0, 255, 65, 0.5);
+    padding: 10px; font-weight: 900; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex; align-items: center; justify-content: center; transition: 0.4s;
 }
 
-.menu {
-  list-style: none;
-  display: flex;
-  gap: 25px;
+.navbar-brand:hover .brand-hex {
+    /* COLOR FONDO HOVER: Verde Neón sólido */
+    background: #00ff41;
+    /* COLOR TEXTO HOVER: Negro (#000) */
+    color: #000;
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.6);
+    transform: rotate(90deg);
 }
 
-.menu li a {
-  text-decoration: none;
-  color: #f0f6fc; /* CAMBIO: Enlaces en blanco/gris claro */
-  font-size: 14px;
-  transition: 0.2s;
+.brand-text-wrapper { display: flex; flex-direction: column; line-height: 1; }
+/* COLOR TEXTO PRINCIPAL: Blanco Puro (#fff) */
+.brand-main-text { color: #000000; font-weight: 900; font-size: 1.2rem; letter-spacing: 1px; }
+/* COLOR TEXTO SECUNDARIO: Verde Neón (#00ff41) */
+.brand-sub-text { color: #00ff41; font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; letter-spacing: 2px; }
+
+/* Punto de Pulso (Sistema Activo) */
+.status-pulse {
+    width: 6px; height: 6px;
+    /* COLOR PULSO: Verde Neón sólido */
+    background-color: #00ff41;
+    border-radius: 50%; margin-top: -15px; animation: amyPulse 1.5s infinite;
+    box-shadow: 0 0 8px rgba(0, 255, 65, 1);
+}
+@keyframes amyPulse { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0.3; } 100% { transform: scale(1); opacity: 1; } }
+
+/* --- ENLACES DE NAVEGACIÓN --- */
+.nav-link-pro {
+    /* COLOR TEXTO ENLACE: Blanco al 60% de opacidad */
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; text-decoration: none;
+    padding: 8px 15px; display: flex; align-items: center; gap: 8px; transition: 0.3s; position: relative;
+}
+/* COLOR NÚMERO (01, 02...): Verde Neón */
+.nav-number { color: #00ff41; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; opacity: 0.5; transition: 0.3s;}
+
+/* COLOR HOVER ENLACE: Blanco Puro (#fff) */
+.nav-link-pro:hover, .nav-link-pro.active { color: #fff; }
+.nav-link-pro:hover .nav-number, .nav-link-pro.active .nav-number { opacity: 1; }
+
+/* Subrayado animado */
+.nav-link-pro::after {
+    content: ''; position: absolute; bottom: 0; left: 15px; width: 0; height: 2px;
+    /* COLOR SUBRAYADO: Verde Neón */
+    background: #00ff41; transition: width 0.3s ease;
+}
+.nav-link-pro:hover::after, .nav-link-pro.active::after { width: 25px; box-shadow: 0 0 10px #00ff41; }
+
+/* --- DROPDOWN CYBER (EFECTO HOVER EN ESCRITORIO) --- */
+@media (min-width: 992px) {
+    .dropdown-cyber {
+        display: block !important; opacity: 0; visibility: hidden;
+        transform: translateY(15px); transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        margin-top: 0 !important; top: 100%;
+        /* COLOR FONDO MENÚ: Negro industrial al 95% */
+        background: rgba(5, 5, 5, 0.95);
+        /* COLOR BORDE MENÚ: Verde Neón al 20% */
+        border: 1px solid rgba(0, 255, 65, 0.2);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.8); border-radius: 4px; padding: 10px 0;
+    }
+
+    /* Puente invisible para que no se cierre el menú al bajar el ratón */
+    .dropdown-cyber::before { content: ''; position: absolute; top: -15px; left: 0; width: 100%; height: 15px; background: transparent; }
+
+    .nav-item.dropdown:hover .dropdown-cyber { opacity: 1; visibility: visible; transform: translateY(10px); }
 }
 
-.menu li a:hover {
-  color: #00ff41; /* CAMBIO: Los enlaces se vuelven verdes al pasar el mouse */
+.dropdown-cyber .dropdown-item {
+    /* COLOR ÍTEM MENÚ: Blanco al 70% */
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem; font-weight: 500; padding: 8px 20px; transition: 0.3s; font-family: 'JetBrains Mono', monospace;
+}
+.dropdown-cyber .dropdown-item:hover {
+    /* COLOR HOVER MENÚ: Fondo Verde Neón al 10%, Texto Blanco, Borde izquierdo Verde Neón */
+    background: rgba(0, 255, 65, 0.1); color: #000000; padding-left: 25px; border-left: 2px solid #00ff41;
+}
+.text-neon { color: #00ff41 !important; }
+
+/* --- ZONA DE ACCIÓN: BOTONES --- */
+.btn-portal-client {
+    /* COLOR BOTÓN PORTAL: Texto Blanco al 60%, Borde Verde Neón al 30% */
+    color: rgba(255, 255, 255, 0.6); background: transparent;
+    border: 1px solid rgba(0, 255, 65, 0.3); border-radius: 4px;
+    padding: 8px 15px; font-size: 1rem; transition: 0.3s; display: flex; align-items: center; justify-content: center; text-decoration: none;
+}
+.btn-portal-client:hover {
+    /* COLOR HOVER PORTAL: Texto Verde Neón, Fondo Verde Neón al 10% */
+    color: #00ff41; border-color: #00ff41; background: rgba(0, 255, 65, 0.1); box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
 }
 
-@media (max-width: 768px) {
-  .menu {
-    display: none;
-  }
+.btn-navbar-pro {
+    /* COLOR BOTÓN CONTACTO: Fondo Verde Neón, Texto Negro */
+    background: #00ff41; color: #000; border: none;
+    padding: 10px 25px; font-size: 0.8rem; font-weight: 900; font-family: 'JetBrains Mono', monospace;
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+    transition: 0.3s; display: inline-flex; align-items: center;
+}
+.btn-navbar-pro:hover {
+    /* COLOR HOVER CONTACTO: Fondo Blanco Puro, Sombra Blanca */
+    background: #fff; box-shadow: 0 0 25px rgba(255, 255, 255, 0.6); transform: translateY(-2px);
+}
+
+/* --- TOGGLER MÓVIL CYBERPUNK (Hamburguesa) --- */
+.toggler-icon-custom { display: block; width: 25px; height: 2px; background: #00ff41; position: relative; transition: 0.3s; }
+.toggler-icon-custom::before, .toggler-icon-custom::after {
+    content: ''; position: absolute; width: 25px; height: 2px; background: #00ff41; left: 0; transition: 0.3s;
+}
+.toggler-icon-custom::before { top: -8px; }
+.toggler-icon-custom::after { top: 8px; }
+.toggler-icon-custom.open { background: transparent; }
+.toggler-icon-custom.open::before { top: 0; transform: rotate(45deg); }
+.toggler-icon-custom.open::after { top: 0; transform: rotate(-45deg); }
+
+/* --- RESPONSIVE MOBILE --- */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        /* COLOR MENÚ MÓVIL: Fondo oscuro (98% opacidad) para que sea legible */
+        background: rgba(2, 2, 2, 0.98); padding: 25px;
+        border-radius: 8px; border: 1px solid rgba(0, 255, 65, 0.2);
+        margin-top: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.9);
+    }
+    .nav-item.d-flex.align-items-center.gap-3 { flex-direction: column; width: 100%; }
+    .btn-portal-client, .btn-navbar-pro { width: 100%; justify-content: center; padding: 12px; }
+
+    /* Mostrar el menú en móvil con el clic normal de Bootstrap */
+    .dropdown-cyber { display: none !important; opacity: 1; visibility: visible; transform: none; background: transparent; border: none; box-shadow: none; }
+    .dropdown-menu.show { display: block !important; }
 }
