@@ -1,0 +1,49 @@
+/* --- CONTENEDOR PRINCIPAL --- */
+.amy-stats-section {
+  background-color: #050505; /* Se fusiona con el fondo negro general */
+  border-top: 1px solid rgba(13, 187, 226, 0.2); /* Línea sutil azul/cyan */
+  border-bottom: 1px solid rgba(13, 187, 226, 0.1);
+  padding: 3.5rem 0;
+  position: relative;
+  z-index: 5;
+}
+
+/* --- BLOQUE INDIVIDUAL --- */
+.stat-block {
+  padding: 1rem;
+  transition: transform 0.3s ease;
+  cursor: default;
+}
+
+.stat-block:hover {
+  transform: translateY(-5px);
+}
+
+/* --- LOS NÚMEROS (Estilo Consola) --- */
+.stat-number {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 2.8rem;
+  font-weight: 800;
+  /* Usamos el azul cyan que tienes en el botón de tu Hero */
+  color: #0dbbe2; 
+  text-shadow: 0 0 15px rgba(13, 187, 226, 0.4);
+  margin-bottom: 0.5rem;
+  letter-spacing: -1px;
+}
+
+/* --- ETIQUETAS DE TEXTO --- */
+.stat-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: #8b949e; /* Gris técnico */
+  letter-spacing: 2px;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* --- RESPONSIVE PARA MÓVILES --- */
+@media (max-width: 768px) {
+  .amy-stats-section { padding: 2rem 0; }
+  .stat-number { font-size: 2rem; }
+  .stat-block { padding: 1.5rem 0.5rem; }
+}
