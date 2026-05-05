@@ -199,3 +199,4 @@ export class HeroComponent implements OnInit, AfterViewInit, OnDestroy {
 
   }
 }
+export { HeroComponent as Hero };
