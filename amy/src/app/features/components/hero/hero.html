@@ -1,50 +1,189 @@
-<!-- HERO AMY // BUBBLE_GLASS_CORE -->
-<section class="amy-hero-wrapper">
-  <!-- 1. Tu imagen cruda, nítida y sin filtros oscuros -->
-  <div class="amy-hero-bg"></div>
+<!-- ═══════════════════════════════════════════════════════
+     AMY DIGITAL — HERO COMPONENT
+     ESTILO: EDITORIAL LUXURY / ARQUITECTÓNICO
+     ═══════════════════════════════════════════════════════ -->
 
-  <!-- 2. Nodos/Burbujas Flotantes -->
-  <div class="floating-nodes-container">
+<section class="hero" #heroRef>
 
-    <div class="glass-bubble bubble-1">
-      <i class="fa-solid fa-code"></i> <span>SOFTWARE</span>
-    </div>
-
-    <div class="glass-bubble bubble-2">
-      <i class="fa-solid fa-gears"></i> <span>AUTOMATIZACIÓN</span>
-    </div>
-
-    <div class="glass-bubble bubble-3">
-      <i class="fa-solid fa-server"></i> <span>SERVIDORES</span>
-    </div>
-
-    <div class="glass-bubble bubble-4">
-      <i class="fa-solid fa-bolt"></i> <span>HARDWARE</span>
-    </div>
-
+  <!-- ── CAPAS DE FONDO ─────────────────────────────────── -->
+  <div class="hero__bg">
+    <div class="hero__bg-gradient"></div>
+    <div class="hero__bg-grain"></div>
+    <div class="hero__bg-grid"></div>
+    <div class="hero__bg-glow hero__bg-glow--a"></div>
+    <div class="hero__bg-glow hero__bg-glow--b"></div>
   </div>
 
-  <!-- 3. Contenido Central (Eslogan en Panel de Cristal) -->
-  <div class="container position-relative z-3 d-flex flex-column justify-content-center align-items-center text-center h-100 pt-5">
+  <!-- ── NÚMERO DECORATIVO FONDO ───────────────────────── -->
+  <span class="hero__deco-num" aria-hidden="true">01</span>
 
-    <!-- Este panel protege el texto para que se lea perfecto sin tapar el fondo -->
-    <div class="text-glass-panel">
+  <!-- ── LÍNEAS HORIZONTALES ARQUITECTÓNICAS ───────────── -->
+  <div class="hero__lines" aria-hidden="true">
+    <span class="hero__line hero__line--top"></span>
+    <span class="hero__line hero__line--mid"></span>
+  </div>
 
-      <h1 class="hero-slogan">
-        Llegaste. <br>
-        <span class="text-gradient">No busques más.</span>
+  <!-- ── CONTENIDO PRINCIPAL ───────────────────────────── -->
+  <div class="hero__inner">
+
+    <!-- COLUMNA IZQUIERDA: TEXTO ─────────────────────────── -->
+    <div class="hero__content">
+
+      <!-- Eyebrow -->
+      <div class="hero__eyebrow" [class.is-visible]="isVisible">
+        <span class="hero__eyebrow-line"></span>
+        <span class="hero__eyebrow-text">Amy Digital Agency</span>
+        <span class="hero__eyebrow-badge">{{ statusLabel }}</span>
+      </div>
+
+      <!-- Headline principal -->
+      <h1 class="hero__headline" [class.is-visible]="isVisible">
+        <span class="hero__hl-row hero__hl-row--1">
+          <span class="hero__hl-thin">Creamos</span>
+        </span>
+        <span class="hero__hl-row hero__hl-row--2">
+          <em class="hero__hl-italic">Experiencias</em>
+        </span>
+        <span class="hero__hl-row hero__hl-row--3">
+          <span class="hero__hl-thin">Digitales</span>
+          <span class="hero__hl-outline">Únicas</span>
+        </span>
       </h1>
 
-      <p class="hero-sub-slogan mt-3">
-        El nodo tecnológico definitivo en Tarija para transformar tus ideas en soluciones reales.
+      <!-- Subtítulo typewriter -->
+      <p class="hero__sub" [class.is-visible]="isVisible">
+        <span class="hero__sub-static">Diseño web&nbsp;</span>
+        <span class="hero__sub-typed">{{ typedText }}<span class="hero__cursor" [class.is-blinking]="isCursorBlinking">|</span></span>
       </p>
 
-      <!-- Call to Action llamativo -->
-      <button class="btn-amy-core mt-4" routerLink="/contacto">
-        INICIAR SECUENCIA <i class="fa-solid fa-arrow-right ms-2"></i>
-      </button>
+      <!-- CTAs -->
+      <div class="hero__ctas" [class.is-visible]="isVisible">
+        <a class="hero__cta hero__cta--primary" routerLink="/videollamada">
+          <span>Agendar Videollamada</span>
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+            <path d="M1 14L14 1M14 1H5M14 1V10"
+                  stroke="currentColor" stroke-width="1.4"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a class="hero__cta hero__cta--secondary" routerLink="/portafolio">
+          <span>Ver Portafolio</span>
+          <span class="hero__cta-arrow">→</span>
+        </a>
+      </div>
 
-    </div>
+      <!-- Barra de stats ─────────────────────────────────── -->
+      <div class="hero__stats" [class.is-visible]="isVisible">
+        <div class="hero__stat" *ngFor="let s of stats; let i = index"
+             [style.transition-delay]="(600 + i * 100) + 'ms'">
+          <span class="hero__stat-num">
+            {{ s.animated }}<span class="hero__stat-suffix">{{ s.suffix }}</span>
+          </span>
+          <span class="hero__stat-label">{{ s.label }}</span>
+        </div>
+        <span class="hero__stats-divider" aria-hidden="true"></span>
+      </div>
 
+    </div><!-- /hero__content -->
+
+    <!-- COLUMNA DERECHA: ELEMENTO VISUAL ─────────────────── -->
+    <div class="hero__visual" [class.is-visible]="isVisible" aria-hidden="true">
+
+      <!-- Marco arquitectónico SVG -->
+      <div class="hero__frame">
+        <svg class="hero__frame-svg" viewBox="0 0 420 520"
+             fill="none" xmlns="http://www.w3.org/2000/svg">
+
+          <!-- Rectángulo exterior -->
+          <rect x="1" y="1" width="418" height="518" rx="1"
+                stroke="rgba(168,132,105,0.18)" stroke-width="1"
+                stroke-dasharray="6 4"
+                class="frame-rect frame-rect--outer"/>
+
+          <!-- Rectángulo interior -->
+          <rect x="28" y="28" width="364" height="464" rx="1"
+                stroke="rgba(168,132,105,0.1)" stroke-width="1"
+                class="frame-rect frame-rect--inner"/>
+
+          <!-- Cruz de registro central -->
+          <line x1="210" y1="85" x2="210" y2="115"
+                stroke="rgba(168,132,105,0.4)" stroke-width="1"
+                class="reg-line"/>
+          <line x1="195" y1="100" x2="225" y2="100"
+                stroke="rgba(168,132,105,0.4)" stroke-width="1"
+                class="reg-line"/>
+
+          <!-- Esquinas de enfoque -->
+          <path d="M48 48 L48 68 M48 48 L68 48"
+                stroke="rgba(168,132,105,0.5)" stroke-width="1.5"
+                stroke-linecap="round" class="corner"/>
+          <path d="M372 48 L372 68 M372 48 L352 48"
+                stroke="rgba(168,132,105,0.5)" stroke-width="1.5"
+                stroke-linecap="round" class="corner"/>
+          <path d="M48 472 L48 452 M48 472 L68 472"
+                stroke="rgba(168,132,105,0.5)" stroke-width="1.5"
+                stroke-linecap="round" class="corner"/>
+          <path d="M372 472 L372 452 M372 472 L352 472"
+                stroke="rgba(168,132,105,0.5)" stroke-width="1.5"
+                stroke-linecap="round" class="corner"/>
+
+          <!-- Texto decorativo rotado -->
+          <text x="-440" y="14"
+                transform="rotate(-90)"
+                font-family="'JetBrains Mono', monospace"
+                font-size="9" letter-spacing="4"
+                fill="rgba(168,132,105,0.25)"
+                class="frame-text">
+            AMY_DIGITAL // AGENCY // BUENOS_AIRES
+          </text>
+
+          <!-- Punto de acento -->
+          <circle cx="210" cy="260" r="3"
+                  fill="rgba(168,132,105,0.6)"
+                  class="accent-dot"/>
+          <circle cx="210" cy="260" r="12"
+                  stroke="rgba(168,132,105,0.15)" stroke-width="1"
+                  class="accent-ring"/>
+          <circle cx="210" cy="260" r="24"
+                  stroke="rgba(168,132,105,0.07)" stroke-width="1"
+                  class="accent-ring"/>
+
+          <!-- Línea horizontal central -->
+          <line x1="48" y1="260" x2="186" y2="260"
+                stroke="rgba(168,132,105,0.15)" stroke-width="1"
+                class="h-line"/>
+          <line x1="234" y1="260" x2="372" y2="260"
+                stroke="rgba(168,132,105,0.15)" stroke-width="1"
+                class="h-line"/>
+
+          <!-- Coordenadas -->
+          <text x="48" y="290"
+                font-family="'JetBrains Mono', monospace"
+                font-size="8" letter-spacing="2"
+                fill="rgba(220,210,192,0.18)">
+            34°36′S 58°22′W
+          </text>
+
+        </svg>
+
+        <!-- Glow detrás del frame -->
+        <div class="hero__frame-glow"></div>
+      </div>
+
+      <!-- Label flotante -->
+      <div class="hero__visual-tag">
+        <span class="hero__visual-tag-dot"></span>
+        <span>Disponible para proyectos</span>
+      </div>
+
+    </div><!-- /hero__visual -->
+
+  </div><!-- /hero__inner -->
+
+  <!-- ── SCROLL INDICATOR ───────────────────────────────── -->
+  <div class="hero__scroll" [class.is-visible]="isVisible" aria-hidden="true">
+    <div class="hero__scroll-line"></div>
+    <span class="hero__scroll-label">Scroll</span>
   </div>
+
 </section>

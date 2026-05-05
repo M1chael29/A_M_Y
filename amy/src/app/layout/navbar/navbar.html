@@ -1,95 +1,173 @@
 <!--
-  AMY_ENGINE_UI: NAVBAR CORE
-  VERSION: ULTRA_INSANO_GOD_TIER
-  ESTADO: ONLINE_Y_OPERATIVO
+  AMY DIGITAL — NAVBAR COMPONENT
+  ESTILO: LUXURY MINIMAL · Navy / Brown / Beige
+  ANGULAR: signals · routerLink · AOS
 -->
-<nav class="navbar navbar-expand-lg fixed-top amy-navbar"
-     [class.navbar-scrolled]="isScrolled()"
-     data-aos="fade-down"
-     data-aos-duration="1000">
+<header class="navbar"
+        [class.scrolled]="isScrolled()"
+        data-aos="fade-down"
+        data-aos-duration="900"
+        data-aos-once="true">
 
-  <div class="container">
+  <div class="navbar__inner">
 
-    <!-- BRAND // LOGO HEXAGONAL -->
-    <a class="navbar-brand d-flex align-items-center" routerLink="/" (click)="closeMenu()">
-      <div class="brand-hex">AMY</div>
-      <div class="brand-text-wrapper ms-2">
-        <span class="brand-main-text">DIGITAL</span>
-        <span class="brand-sub-text">// AGENCY</span>
-      </div>
-      <span class="status-pulse ms-2" title="Sistema Activo"></span>
+    <!-- ── BRAND ─────────────────────────────────────────── -->
+    <a class="navbar__logo" routerLink="/" (click)="closeMenu()" aria-label="Amy Digital — Inicio">
+      <span class="navbar__logo-mark">◈</span>
+      <span class="navbar__logo-text">Amy<em>Digital</em></span>
+      <span class="navbar__status" title="Sistema activo"></span>
     </a>
 
-    <!-- TOGGLER MÓVIL CYBERPUNK -->
-    <button class="navbar-toggler border-0 shadow-none"
-            type="button"
-            (click)="toggleMenu()"
-            [attr.aria-expanded]="!isMenuCollapsed">
-      <span class="toggler-icon-custom" [class.open]="!isMenuCollapsed"></span>
-    </button>
+    <!-- ── NAV PRINCIPAL (desktop) ───────────────────────── -->
+    <nav class="navbar__nav" aria-label="Navegación principal">
+      <ul class="navbar__list" id="navList">
 
-    <!-- MATRIZ DE NAVEGACIÓN -->
-    <div class="collapse navbar-collapse" [class.show]="!isMenuCollapsed" id="navbarNav">
-      <ul class="navbar-nav ms-auto align-items-center gap-lg-3">
-
-        <li class="nav-item">
-          <a class="nav-link-pro" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">
-            <span class="nav-number">01</span> INICIO
+        <!-- 01 · VIDEOLLAMADA -->
+        <li class="navbar__item">
+          <a class="navbar__link"
+             routerLink="/videollamada"
+             routerLinkActive="navbar__link--active"
+             [routerLinkActiveOptions]="{exact: true}"
+             (click)="closeMenu()"
+             data-label="01">
+            <span class="navbar__link-sup">Programa una</span>
+            <span class="navbar__link-main">Videollamada con un Asesor</span>
           </a>
         </li>
 
-        <!-- NODO: SERVICIOS (DROPDOWN CON HOVER) -->
-        <li class="nav-item dropdown">
-          <a class="nav-link-pro dropdown-toggle" routerLink="/servicios" routerLinkActive="active" role="button" data-bs-toggle="dropdown">
-            <span class="nav-number">02</span> SERVICIOS
-          </a>
-          <ul class="dropdown-menu dropdown-cyber">
-            <li><a class="dropdown-item" routerLink="/servicios/tiendas-online" (click)="closeMenu()">E-COMMERCE</a></li>
-            <li><a class="dropdown-item" routerLink="/servicios/sitios-corporativos" (click)="closeMenu()">CORPORATIVOS</a></li>
-            <li><a class="dropdown-item" routerLink="/servicios/landing-pages" (click)="closeMenu()">LANDING_PAGES</a></li>
-            <li><a class="dropdown-item" routerLink="/servicios/mantenimiento-web" (click)="closeMenu()">MANTENIMIENTO</a></li>
-            <li><hr class="dropdown-divider border-secondary opacity-25"></li>
-            <li><a class="dropdown-item text-neon" routerLink="/servicios" (click)="closeMenu()">EXPLORAR_TODOS</a></li>
-          </ul>
-        </li>
-
-        <!-- NODO: PORTAFOLIO -->
-        <li class="nav-item">
-          <a class="nav-link-pro" routerLink="/portafolio" routerLinkActive="active" (click)="closeMenu()">
-            <span class="nav-number">03</span> PORTAFOLIO
+        <!-- 02 · PLANES Y PRECIOS -->
+        <li class="navbar__item">
+          <a class="navbar__link"
+             routerLink="/servicios"
+             routerLinkActive="navbar__link--active"
+             (click)="closeMenu()"
+             data-label="02">
+            <span class="navbar__link-sup">Planes y Precios</span>
+            <span class="navbar__link-main">Sitios Web y Landing Pages</span>
           </a>
         </li>
 
-        <!-- NODO: BLOG -->
-        <li class="nav-item">
-          <a class="nav-link-pro" routerLink="/blog" routerLinkActive="active" (click)="closeMenu()">
-            <span class="nav-number">04</span> BLOG
+        <!-- 03 · MARKETING -->
+        <li class="navbar__item">
+          <a class="navbar__link"
+             routerLink="/marketing"
+             routerLinkActive="navbar__link--active"
+             (click)="closeMenu()"
+             data-label="03">
+            <span class="navbar__link-sup">Planes de Marketing</span>
+            <span class="navbar__link-main">Google Ads y Redes Sociales</span>
           </a>
         </li>
 
-        <!-- NODO: NOSOTROS -->
-        <li class="nav-item">
-          <a class="nav-link-pro" routerLink="/nosotros" routerLinkActive="active" (click)="closeMenu()">
-            <span class="nav-number">05</span> NOSOTROS
+        <!-- 04 · CONTACTO -->
+        <li class="navbar__item">
+          <a class="navbar__link navbar__link--contact"
+             routerLink="/contacto"
+             routerLinkActive="navbar__link--active"
+             (click)="closeMenu()"
+             data-label="04">
+            <span class="navbar__link-sup">Contacto</span>
+            <span class="navbar__link-main">+54 9 11 6939 7855</span>
           </a>
-        </li>
-
-        <!-- ZONA DE ACCIÓN: TERMINALES -->
-        <li class="nav-item d-flex align-items-center gap-3 ms-lg-4 mt-4 mt-lg-0">
-
-          <!-- TERMINAL: PORTAL CLIENTES -->
-          <a class="btn-portal-client" routerLink="/portal-cliente" (click)="closeMenu()" title="Acceso a Servidores">
-            <i class="fa-solid fa-terminal"></i> <span class="d-lg-none ms-2">PORTAL_CLIENTES</span>
-          </a>
-
-          <!-- TERMINAL: CONTACTO DIRECTO -->
-          <button class="btn-navbar-pro" routerLink="/contacto" (click)="closeMenu()">
-            CONTACTO_NODO <i class="fa-solid fa-bolt ms-2"></i>
-          </button>
-
         </li>
 
       </ul>
+
+      <!-- Indicador deslizante -->
+      <span class="navbar__indicator" id="navIndicator"></span>
+    </nav>
+
+    <!-- ── ACCIONES ───────────────────────────────────────── -->
+    <div class="navbar__actions">
+
+      <!-- Portal clientes (desktop) -->
+      <a class="navbar__portal"
+         routerLink="/portal-cliente"
+         (click)="closeMenu()"
+         title="Portal Clientes"
+         aria-label="Acceder al portal de clientes">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+          <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
+          <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+        </svg>
+        <span>Portal</span>
+      </a>
+
+      <!-- Hamburger (mobile) -->
+      <button class="navbar__hamburger"
+              id="hamburger"
+              type="button"
+              (click)="toggleMenu()"
+              [class.open]="!isMenuCollapsed"
+              [attr.aria-expanded]="!isMenuCollapsed"
+              aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
-  </div>
-</nav>
+
+  </div><!-- /navbar__inner -->
+
+
+  <!-- ── MENÚ MÓVIL ─────────────────────────────────────── -->
+  <div class="navbar__mobile"
+       id="mobileMenu"
+       [class.open]="!isMenuCollapsed"
+       [attr.aria-hidden]="isMenuCollapsed">
+
+    <nav aria-label="Menú móvil">
+      <ul class="navbar__mobile-list">
+
+        <li>
+          <a class="navbar__mobile-link"
+             routerLink="/videollamada"
+             routerLinkActive="navbar__mobile-link--active"
+             (click)="closeMenu()">
+            <span class="navbar__mobile-sup">Programa una</span>
+            Videollamada con un Asesor
+          </a>
+        </li>
+
+        <li>
+          <a class="navbar__mobile-link"
+             routerLink="/servicios"
+             routerLinkActive="navbar__mobile-link--active"
+             (click)="closeMenu()">
+            <span class="navbar__mobile-sup">Planes y Precios</span>
+            Sitios Web y Landing Pages
+          </a>
+        </li>
+
+        <li>
+          <a class="navbar__mobile-link"
+             routerLink="/marketing"
+             routerLinkActive="navbar__mobile-link--active"
+             (click)="closeMenu()">
+            <span class="navbar__mobile-sup">Planes de Marketing</span>
+            Google Ads y Redes Sociales
+          </a>
+        </li>
+
+        <li>
+          <a class="navbar__mobile-link navbar__mobile-link--phone"
+             routerLink="/contacto"
+             (click)="closeMenu()">
+            <span class="navbar__mobile-sup">Contacto directo</span>
+            +54 9 11 6939 7855
+          </a>
+        </li>
+
+        <!-- Portal mobile -->
+        <li class="navbar__mobile-portal">
+          <a routerLink="/portal-cliente" class="btn-outline w-100 text-center" (click)="closeMenu()">
+            Acceder al Portal ↗
+          </a>
+        </li>
+
+      </ul>
+    </nav>
+
+  </div><!-- /navbar__mobile -->
+
+</header>
